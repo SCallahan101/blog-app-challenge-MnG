@@ -15,9 +15,9 @@ app.use(express.json());
 // does - dash cause an interference in coding? Check with Ali at 3pm today.
 app.get('/blog-posts', (req, res) => {
   Blog.find()
-  .then(blog-posts => {
+  .then(posts => {
     res.json({
-      blog-posts: blog-posts.map(blog-post => blog-post.serialize())
+      posts: posts.map(post => post.serialize())
     });
   })
   .catch(err => {
@@ -29,7 +29,7 @@ app.get('/blog-posts', (req, res) => {
 app.get('/blog-posts/:id', (req, res) => {
   Blog
   .findbyId(req.params.id)
-  .then(blog-post => res.json(blog-post.serialize()))
+  .then(post => res.json(post.serialize()))
   .catch(err => {
     console.error(err);
     res.status(500).json({ message: "Internal service error"});
@@ -48,10 +48,10 @@ app.post('/blog-posts', (req, res) => {
   }
   Blog.create({
     title: res.body.title,
-    author: res.body.author = [res.body.firstName, res.body.lastName],
+    author: {res.body.firstName, res.body.lastName},
     content: res.body.content
   })
-  .then(blog-post => res.status(201).json(blog-post.serialize()))
+  .then(post => res.status(201).json(post.serialize()))
   .catch(err => {
     console.error(err);
     res.status(500).json({message: 'Internal service error'});
@@ -75,14 +75,14 @@ app.put('/blog-posts/:id', (req, res) => {
   });
   Blog
   .findByIdAndUpdate(req.params.id, {$set: toUpdate})
-  .then(blog-post => res.status(204).end())
+  .then(post => res.status(204).end())
   .catch(err => res.status(500).json({
     message: 'Internal service error'}));
 });
 
 app.delete('/blog-posts/:id', (req, res) => {
   Blog.findByIdAndRemove(res.params.id)
-  .then(blog-post => res.status(204).end());
+  .then(post => res.status(204).end());
   .catch(err => res.status(500).json({
     message: 'Internal service error'
   }));
