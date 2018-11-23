@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 // const config?
+const { PORT, DATABASE_URL } = require('./appConfig');
 const = { Blog } = require('./seed-data');
 
 
