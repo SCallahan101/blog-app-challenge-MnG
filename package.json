@@ -1,0 +1,19 @@
+{
+  "name": "mongoose_api_challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "MnGmodels.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/SCallahan101/blog-app-challenge-Mng.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SCallahan101/blog-app-challenge-Mng/issues"
+  },
+  "homepage": "https://github.com/SCallahan101/blog-app-challenge-Mng#readme"
+}
